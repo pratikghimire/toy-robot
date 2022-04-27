@@ -16,6 +16,6 @@ class TableTop
 
   def within_boundary?(x_position, y_position)
     x_position.between?(left_boundary, right_boundary) &&
-    y_position.between?(bottom_boundary, top_boundary)
+      y_position.between?(bottom_boundary, top_boundary)
   end
 end

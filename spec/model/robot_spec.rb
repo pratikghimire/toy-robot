@@ -8,8 +8,39 @@ RSpec.describe Robot do
 
   let(:table_top) { TableTop.new }
 
-  xcontext 'when something happens' do
-    it 'does something' do
+  describe '#place' do
+    let(:place_robot) do
+      robot.place(x_position, y_position, direction)
+    end
+
+    let(:x_position) { 2 }
+    let(:y_position) { 1 }
+    let(:direction) { 'EAST' }
+
+    context 'when the position and direction is valid' do
+      it 'places the robot to the position with direction' do
+        place_robot
+        expect(robot.report).to eq('2,1,EAST')
+      end
+    end
+
+    context 'when the position is valid but direction is invalid' do
+      let(:direction) { 'SOUTH EAST' }
+
+      it 'does not place the robot' do
+        place_robot
+        expect(robot.report).to eq(',,')
+      end
+    end
+
+    context 'when the direction is valid but position is invalid' do
+      let(:x_position) { 20 }
+      let(:y_position) { 10 }
+
+      it 'does not place the robot' do
+        place_robot
+        expect(robot.report).to eq(',,')
+      end
     end
   end
 end
