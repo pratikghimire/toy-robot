@@ -2,6 +2,7 @@
 
 require './lib/model/robot'
 require './lib/services/data_reader'
+require './lib/services/validator/instruction_validator'
 
 module Services
   # Reads instructions from file and manages robot movement
@@ -19,10 +20,25 @@ module Services
     def call
       instructions.each do |instruction|
         puts instruction
+        command, args = extract_command(instruction)
+
+        robot.send(command, *args) if valid_command?(command, args)
       end
     end
 
     private
+
+    def extract_command(instruction)
+      args = instruction.scan(/-?\w+/)
+      command = args.shift
+      command = command.downcase.to_sym if command
+
+      [command, args]
+    end
+
+    def valid_command?(command, args)
+      Services::Validator::InstructionValidator.new(robot).validate(command, args)
+    end
 
     def instructions
       @instructions ||= read_instructions_from_file

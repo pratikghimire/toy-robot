@@ -37,16 +37,20 @@ class Robot
     ![x_coordinate, y_coordinate, cardinal_direction].compact.empty?
   end
 
-  def report
-    "#{x_coordinate},#{y_coordinate},#{cardinal_direction}"
-  end
-
   def left
     turn(LEFT_TURN)
   end
 
   def right
     turn(RIGHT_TURN)
+  end
+
+  def report
+    puts position
+  end
+
+  def position
+    "#{x_coordinate},#{y_coordinate},#{cardinal_direction}"
   end
 
   private

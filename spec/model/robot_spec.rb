@@ -19,7 +19,7 @@ RSpec.describe Robot do
     context 'when the position and direction is valid' do
       it 'places the robot to the position with direction' do
         place_robot
-        expect(robot.report).to eq('2,1,EAST')
+        expect(robot.position).to eq('2,1,EAST')
         expect(robot.placed?).to be(true)
       end
     end
@@ -29,7 +29,7 @@ RSpec.describe Robot do
 
       it 'does not place the robot' do
         place_robot
-        expect(robot.report).to eq(',,')
+        expect(robot.position).to eq(',,')
         expect(robot.placed?).to be(false)
       end
     end
@@ -40,7 +40,7 @@ RSpec.describe Robot do
 
       it 'does not place the robot' do
         place_robot
-        expect(robot.report).to eq(',,')
+        expect(robot.position).to eq(',,')
         expect(robot.placed?).to be(false)
       end
     end
@@ -52,7 +52,7 @@ RSpec.describe Robot do
     context 'when the position and direction is valid' do
       it 'places the robot to the position with direction' do
         robot.left
-        expect(robot.report).to eq('2,1,NORTH')
+        expect(robot.position).to eq('2,1,NORTH')
       end
     end
   end
@@ -63,7 +63,7 @@ RSpec.describe Robot do
     context 'when the position and direction is valid' do
       it 'places the robot to the position with direction' do
         robot.right
-        expect(robot.report).to eq('2,1,SOUTH')
+        expect(robot.position).to eq('2,1,SOUTH')
       end
     end
   end
@@ -74,7 +74,7 @@ RSpec.describe Robot do
     context 'when the robot is within the boundary' do
       it 'moves the robot one step forward in north direction' do
         robot.move
-        expect(robot.report).to eq('3,1,EAST')
+        expect(robot.position).to eq('3,1,EAST')
       end
     end
 
@@ -83,7 +83,7 @@ RSpec.describe Robot do
 
       it 'does not move the robot outside the boundary' do
         robot.move
-        expect(robot.report).to eq('4,1,EAST')
+        expect(robot.position).to eq('4,1,EAST')
       end
     end
 
@@ -93,7 +93,7 @@ RSpec.describe Robot do
 
       it 'moves the robot in west direction within boundary' do
         robot.move
-        expect(robot.report).to eq('3,1,WEST')
+        expect(robot.position).to eq('3,1,WEST')
       end
     end
   end
