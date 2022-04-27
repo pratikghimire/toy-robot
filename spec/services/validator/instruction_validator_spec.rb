@@ -17,26 +17,26 @@ RSpec.describe Services::Validator::InputValidator do
     context 'when the command is invalid' do
       let(:command) { 'HELLO WORLD' }
 
-      it { expect(validate).to eq(false) }
+      it { expect(validate).to be(false) }
     end
 
     context 'when command is place' do
       let(:command) { 'place' }
 
       context 'when options is not complete' do
-        it { expect(validate).to eq(false) }
+        it { expect(validate).to be(false) }
       end
 
       context 'when options has invalid coordinates' do
         let(:options) { %w[a 1 EAST] }
 
-        it { expect(validate).to eq(false) }
+        it { expect(validate).to be(false) }
       end
 
       context 'when options has invalid coordinates' do
         let(:options) { %w[1 1 EAST] }
 
-        it { expect(validate).to eq(true) }
+        it { expect(validate).to be(true) }
       end
     end
 
@@ -44,25 +44,25 @@ RSpec.describe Services::Validator::InputValidator do
       context 'when command is move' do
         let(:command) { 'move' }
 
-        it { expect(validate).to eq(false) }
+        it { expect(validate).to be(false) }
       end
 
       context 'when command is left' do
         let(:command) { 'left' }
 
-        it { expect(validate).to eq(false) }
+        it { expect(validate).to be(false) }
       end
 
       context 'when command is right' do
         let(:command) { 'right' }
 
-        it { expect(validate).to eq(false) }
+        it { expect(validate).to be(false) }
       end
 
       context 'when command is report' do
         let(:command) { 'report' }
 
-        it { expect(validate).to eq(false) }
+        it { expect(validate).to be(false) }
       end
     end
 
@@ -72,25 +72,25 @@ RSpec.describe Services::Validator::InputValidator do
       context 'when command is move' do
         let(:command) { 'move' }
 
-        it { expect(validate).to eq(true) }
+        it { expect(validate).to be(true) }
       end
 
       context 'when command is left' do
         let(:command) { 'left' }
 
-        it { expect(validate).to eq(true) }
+        it { expect(validate).to be(true) }
       end
 
       context 'when command is right' do
         let(:command) { 'right' }
 
-        it { expect(validate).to eq(true) }
+        it { expect(validate).to be(true) }
       end
 
       context 'when command is report' do
         let(:command) { 'report' }
 
-        it { expect(validate).to eq(true) }
+        it { expect(validate).to be(true) }
       end
     end
   end
