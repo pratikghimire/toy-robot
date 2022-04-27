@@ -3,7 +3,7 @@
 module Services
   module Validator
     # Class to validate input from the list of valid commands
-    class InputValidator
+    class InstructionValidator
       attr_reader :robot
 
       PLACE_ARGS_LENGTH = 3

@@ -4,12 +4,12 @@ require 'spec_helper'
 require './lib/model/robot'
 require './lib/services/validator/instruction_validator'
 
-RSpec.describe Services::Validator::InputValidator do
+RSpec.describe Services::Validator::InstructionValidator do
   subject(:input_validator) { described_class.new(robot) }
 
   let(:robot) { Robot.new(table_top) }
   let(:table_top) { TableTop.new }
-  let(:options) {}
+  let(:options) { nil }
 
   describe '#validate' do
     subject(:validate) { input_validator.validate(command, options) }
@@ -33,7 +33,7 @@ RSpec.describe Services::Validator::InputValidator do
         it { expect(validate).to be(false) }
       end
 
-      context 'when options has invalid coordinates' do
+      context 'when options has valid coordinates' do
         let(:options) { %w[1 1 EAST] }
 
         it { expect(validate).to be(true) }
@@ -66,7 +66,7 @@ RSpec.describe Services::Validator::InputValidator do
       end
     end
 
-    context 'when the robot has not been placed' do
+    context 'when the robot has been placed' do
       before { robot.place(1, 2, 'EAST') }
 
       context 'when command is move' do
