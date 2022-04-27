@@ -12,6 +12,9 @@ RSpec/MessageSpies:
 RSpec/MultipleExpectations:
   Max: 2
 
+RSpec/NestedGroups:
+  Max: 4
+
 Layout/LineLength:
   Max: 100
 
