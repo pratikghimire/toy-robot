@@ -4,11 +4,11 @@
 class TableTop
   attr_accessor :name
 
-  attr_reader :left_boundry, :right_boundry,
-                :top_boundry, :bottom_boundry
+  attr_reader :left_boundary, :right_boundary,
+                :top_boundary, :bottom_boundary
 
   def initialize
-    @left_boundry, @bottom_boundry = 0, 0
-    @right_boundry, @top_boundry = 4, 4
+    @left_boundary, @bottom_boundary = 0, 0
+    @right_boundary, @top_boundary = 4, 4
   end
 end
