@@ -20,6 +20,10 @@ class Robot
     @cardinal_direction = direction
   end
 
+  def placed?
+    ![x_coordinate, y_coordinate, cardinal_direction].compact.empty?
+  end
+
   def report
     "#{x_coordinate},#{y_coordinate},#{cardinal_direction}"
   end

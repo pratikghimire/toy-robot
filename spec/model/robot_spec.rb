@@ -21,6 +21,7 @@ RSpec.describe Robot do
       it 'places the robot to the position with direction' do
         place_robot
         expect(robot.report).to eq('2,1,EAST')
+        expect(robot.placed?).to eq(true)
       end
     end
 
@@ -30,6 +31,7 @@ RSpec.describe Robot do
       it 'does not place the robot' do
         place_robot
         expect(robot.report).to eq(',,')
+        expect(robot.placed?).to eq(false)
       end
     end
 
@@ -40,6 +42,7 @@ RSpec.describe Robot do
       it 'does not place the robot' do
         place_robot
         expect(robot.report).to eq(',,')
+        expect(robot.placed?).to eq(false)
       end
     end
   end
