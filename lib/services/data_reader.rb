@@ -16,7 +16,9 @@ module Services
 
       file_extension = File.extname(file_path).delete('.').downcase
 
-      raise 'Error! Provided file is not in TXT format' unless ACCEPTED_FILE_EXTENSION.include?(file_extension)
+      unless ACCEPTED_FILE_EXTENSION.include?(file_extension)
+        raise 'Error! Provided file is not in TXT format'
+      end
 
       begin
         file = File.open(File.expand_path(file_path))
