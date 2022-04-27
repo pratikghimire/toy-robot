@@ -1,8 +1,52 @@
-# Toy Robot
+# Toy Robot Introduction
+
+A command line application is a simulation of a toy robot moving on a square tabletop, of dimensions 5 units x 5 units.
+
+# Getting started
+### Built with
+If you are new with ruby, please follow [this link](https://www.ruby-lang.org/en/documentation/installation/) to install ruby on your local environment. The ruby version used on this app is `3.1.1`.
+
+## Installation
+There are no operational dependencies. Please note there is no persistent database instead JSON files act as data store.
+
+### Clone the repo and change the directory to the project
+```sh
+git clone git@github.com:pratikghimire/toy-robot.git
+cd toy-robot
+```
+
+### Install dependencies
+```
+bundle install
+```
+
+### Usage
+To generate the summary, please run the following command
+```
+ruby ./lib/main.rb
+```
+
+Running the file would prompt to search data which will provide with various options to list search fields, 
+
+## Testing
+[Rspec](https://rspec.info/) is as a tool for TDD and writing tests. To run the automated tests, please run the following
+```
+bundle exec rspec
+```
+All specs should be green 🍏
+
+## Quality
+[Rubocop](https://rubocop.org/) is used for linting (style check). To check for lints, please run the following
+```
+bundle exec rubocop
+```
+Rubocop output should be green 🍏
+
+--------
 
 #### What is this ?
 
-Toy Robot is a ruby coding exercise that we get our potential candidates  complete for us to understand their capabilities.  
+Toy Robot is a ruby coding exercise that we get our potential candidates complete for us to understand their capabilities.  
 
 #### What do I need to do ?
 
@@ -76,38 +120,3 @@ MOVE
 REPORT
 ```
 Output: `3,3,NORTH`
-
-#### Why am I doing this ?
-
-We belive these kind of coding challenges will give us more visibility on the candidate's strengths. On the other have, candidates can show their 
-capabilities by applying what they already know. 
-
-#### What’s next ?
-
-- clone this repo
-- Do your changes
-- Email us the link to your public git repo with the solution
-
-
-#### What do We expect as deliveries?
-
-While we love to see a working code, the most important aspects we are looking in to is, 
-
-- How you would approach a problem 
-- How you approach around testing 
-- Any other related documents (E.g README) that will help someone to set up and run this project.
-
-#### What are the next steps ? 
-
-Once you completed the exercise and let us know, we'll go through your code and if we are happy with your code, we'll contact you for the next step, which is a 
-discussion on this code and your thinking / approach to this problem. 
-
-#### Toy robot is a very common coding test and I can find heaps of sample code ?
-
-Yes, true, this is a very famous common test. However, we sincerely hope that you'll not just copy and paste a code from internet :). 
-
-In Fact the author of this test himself has described, why this test is still relevant, even though there are many examples out there
-
-[Toy Robot Coding Puzzle](https://joneaves.wordpress.com/2014/07/21/toy-robot-coding-test/)
-
-All the very best !!!
