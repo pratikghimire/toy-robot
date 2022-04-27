@@ -18,7 +18,6 @@ RSpec.configure do |config|
 
   config.default_formatter = 'doc'
 
-  config.profile_examples = 1
   config.order = :random
   Kernel.srand config.seed
 end
