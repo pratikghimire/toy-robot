@@ -7,6 +7,8 @@ class Robot
   attr_accessor :x_coordinate, :y_coordinate, :cardinal_direction
 
   VALID_CARDINAL_DIRECTIONS = %w[EAST SOUTH WEST NORTH].freeze
+  RIGHT_TURN = 'RIGHT'
+  LEFT_TURN = 'LEFT'
 
   def initialize(table_top)
     @table_top = table_top
@@ -26,6 +28,25 @@ class Robot
 
   def report
     "#{x_coordinate},#{y_coordinate},#{cardinal_direction}"
+  end
+
+  def left
+    turn(LEFT_TURN)
+  end
+
+  def right
+    turn(RIGHT_TURN)
+  end
+
+  def turn(direction)
+    index = VALID_CARDINAL_DIRECTIONS.index(@cardinal_direction)
+
+    @cardinal_direction = case direction.upcase
+                          when LEFT_TURN
+                            VALID_CARDINAL_DIRECTIONS.rotate(-1)[index]
+                          when RIGHT_TURN
+                            VALID_CARDINAL_DIRECTIONS.rotate[index]
+                          end
   end
 
   private
