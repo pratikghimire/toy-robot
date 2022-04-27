@@ -67,4 +67,34 @@ RSpec.describe Robot do
       end
     end
   end
+
+  describe '#move' do
+    before { robot.place(x_position, y_position, direction) }
+
+    context 'when the robot is within the boundary' do
+      it 'moves the robot one step forward in north direction' do
+        robot.move
+        expect(robot.report).to eq('3,1,EAST')
+      end
+    end
+
+    context 'when the robot is on the boundary facing east' do
+      let(:x_position) { 4 }
+
+      it 'does not move the robot outside the boundary' do
+        robot.move
+        expect(robot.report).to eq('4,1,EAST')
+      end
+    end
+
+    context 'when the robot is on the boundary facing west' do
+      let(:x_position) { 4 }
+      let(:direction) { 'WEST' }
+
+      it 'moves the robot in west direction within boundary' do
+        robot.move
+        expect(robot.report).to eq('3,1,WEST')
+      end
+    end
+  end
 end
